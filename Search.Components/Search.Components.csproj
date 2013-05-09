@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F5A45EEE-451B-496E-AC1A-E9F51846A46A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Search.Components</RootNamespace>
+    <AssemblyName>Search.Components</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.15.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.2.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Html\Extensions.cs" />
+    <Compile Include="Html\ViewModels\SearchViewModel.cs" />
+    <Compile Include="Html\ViewModels\Results\ExportViewModel.cs" />
+    <Compile Include="Html\ViewModels\Results\TangibleResultItemViewModel.cs" />
+    <Compile Include="Html\ViewModels\DistrictViewModel.cs" />
+    <Compile Include="Html\ViewModels\ExemptionCodeViewModel.cs" />
+    <Compile Include="Html\ViewModels\Results\IResultItemViewModel.cs" />
+    <Compile Include="Html\ViewModels\LookupTableViewModel.cs" />
+    <Compile Include="Html\ViewModels\NaicsCodeViewModel.cs" />
+    <Compile Include="Html\ViewModels\SearchBuildingViewModel.cs" />
+    <Compile Include="Html\ViewModels\SearchParcelViewModel.cs" />
+    <Compile Include="Html\ViewModels\SearchPropertyFeaturesViewModel.cs" />
+    <Compile Include="Html\ViewModels\SearchSalesViewModel.cs" />
+    <Compile Include="Html\ViewModels\SearchValuesViewModel.cs" />
+    <Compile Include="Html\ViewModels\SubdivisionViewModel.cs" />
+    <Compile Include="Html\ViewModels\Search\TangibleSearchViewModel.cs" />
+    <Compile Include="Html\ViewModels\TaxCodeViewModel.cs" />
+    <Compile Include="Html\ViewModels\UseCodeViewModel.cs" />
+    <Compile Include="Html\ViewModels\ZoningCodeViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Html\ViewModels\BuildingViewModel.cs" />
+    <Compile Include="Html\ViewModels\ParcelViewModel.cs" />
+    <Compile Include="Html\ViewModels\Results\ParcelResultItemViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Search.Layers\Search.Data.csproj">
+      <Project>{F090B520-890B-4770-97E1-B06CA42C4C9A}</Project>
+      <Name>Search.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Search.Models\Search.Models.csproj">
+      <Project>{8ABBDC23-31FA-4943-99AC-A349E9A34F2A}</Project>
+      <Name>Search.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\PagedList.css" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

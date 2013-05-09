@@ -1,0 +1,158 @@
+﻿@using Search.Data.Models;
+@using Search.Data.Services;
+@using Search.Components.Html.ViewModels;
+@using MvcContrib.UI.Grid;
+@using Search.Helpers;
+@using Search.Data;
+@using System.Web.Mvc.Html;
+
+@model ParcelViewModel
+@{
+    
+    //TODO: Add sales tab
+}
+
+<script type="text/javascript" language="javascript">
+    $(function () {
+        $("#tabs").tabs();
+    });
+
+</script>
+@*<h3>@if(Model.PREV_ID != null){
+    @Html.ActionLink("<<", "Details", new { id = Model.PREV_ID }, new { Title = "Previous ID" })
+}&nbsp;;@if (Model.NEXT_ID != null)
+{
+    @Html.ActionLink(">>", "Details", new { id = Model.NEXT_ID }, new { Title = "Next ID" })
+}</h3>*@
+
+<div class="hide-on-print">
+    @Html.ActionLink("Search Again", "Search")
+</div>
+<h3>Parcel ID/Account Number @Model.STRAP</h3>
+<h2>@Model.SITUS</h2>
+
+
+
+<div id="owners-grid">
+@Html.Grid(Model.Owners).AutoGenerateColumns()
+</div>
+
+
+
+<h5>Mailing Address On File</h5>
+<p><strong>@Model.MAILING_ADDRESS</strong></p>
+<p><a href="#">Incorrect mailing address?</a></p>
+
+@*<h5>Situs</h5>
+<p><strong>@Model.SITUS</strong></p>*@
+<h5>Property Use</h5>
+<p><strong>@Model.PROPERTY_USE</strong></p>
+
+<h5>Subdivision</h5>
+<p><strong>@Model.SUBDIVISION</strong></p>
+
+<h5>Parcel Description</h5>
+<p>@Model.ASSESSMENT_DESCRIPTION</p>
+
+<div id="tabs">
+<ul class="hide-on-print">
+<li><a href="#Parcel-Features">Parcel Features</a></li>
+<li><a href="#Values-Exemptions">Values and Exemptions</a></li>
+<li><a href="#Transfers">Transfers</a></li>
+<li><a href="#Map">Map</a></li>
+</ul>
+
+<div id="Parcel-Features">
+
+
+<h2>Parcel Characteristics</h2>
+<table>
+<thead>
+<tr>
+<th>@Html.DisplayNameFor(m=>m.LAND_AREA)</th>
+<th>Incorporation</th>
+<th>Delineated District</th>
+<th>Sec/Twp/Rge</th>
+<th>Census</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@Html.DisplayFor(m=>m.LAND_AREA) </td>
+<td>@Html.Display("MUNICIPALITY_NAME")</td>
+<td>@Model.DELINEATED_DISTRICT</td>
+<td>@Model.SEC_TWP_RGE</td>
+<td>@Model.CENSUS</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Buildings</h2>
+@if (Model.Buildings.Count > 0)
+{
+<div id="buildings">
+@Html.Grid(Model.Buildings).AutoGenerateColumns().Columns(extraCols => {
+    extraCols.For(x => Html.ActionLink(x.Situs, "Buildings", new { strap = x.STRAP, num = x.NUM })).Named("Situs").InsertAt(0);
+}) 
+
+</div>
+}
+else
+{
+<h3>Vacant Land</h3>
+}
+
+<h2>Extra Features</h2>
+@Html.Grid(Model.ExtraFeatures).AutoGenerateColumns().Empty("There are no extra features associated with this parcel")
+
+
+</div>
+
+<div id="Values-Exemptions">
+<h2>Values</h2>
+<div id="ParcelValuations-grid">
+@Html.Grid(Model.ParcelValuations.OrderByDescending(g=>g.YEAR).Take(5)).AutoGenerateColumns().Empty("There are no values associated with this parcel")
+</div>
+
+
+
+
+<h2>Exemptions</h2>
+<div id="exemptions-grid">
+@Html.Grid(Model.Exemptions).AutoGenerateColumns().Empty("There are no exemptions associated with this parcel")  
+
+</div>
+<h2>Ad Valorem</h2>
+<div id="advalorem-grid">
+@Html.Grid(Model.AdValorems).AutoGenerateColumns().Empty("There are no ad valorems associated with this parcel")
+</div>
+
+<h2>Non Ad Valorem</h2>
+<div id="nonadvalorem-grid">
+@Html.Grid(Model.NonAdValorems).AutoGenerateColumns().Empty("There are no non-ad valorems associated with this parcel")
+</div>
+
+</div>
+
+<div id="Transfers">
+<h2>Transfers</h2>
+<div id="transfers-grid">
+@Html.Grid(Model.Transfers).AutoGenerateColumns().Empty("There are no sales or transfers associated with this parcel")
+</div>
+</div>
+
+
+
+
+<div id="Map" class="hide-on-print">
+<iframe src="http://ags.scgov.net/SCPAexternal/?search=@Model.STRAP.AsParcelID() " width="500px" height="500px" marginheight="0" marginwidth="0">
+Your browser does not support frames
+</iframe>
+</div>
+
+@*<div id="Trim-Notice">
+<iframe src="http://www.sc-pa.com/trimnotice/trimnotice.aspx?id=@Model.STRAP" width="100%" height="1200px"  marginheight="0" marginwidth="0">
+
+</iframe>
+</div>*@
+</div>

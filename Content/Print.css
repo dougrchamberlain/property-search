@@ -1,0 +1,34 @@
+﻿body * {
+     display: block!important;
+} 
+
+script {
+    display: none!important;
+}
+
+.hide-on-print 
+{
+    display:none;
+    height: 0px;
+    overflow: hidden;
+}
+table,p,td,tr 
+{
+    margin:.25em;
+}
+body {
+font-family:"Arial","Helvetica","Trebuchet MS","Verdana","Times New Roman","Sans-Serif";
+font-size:72%;
+overflow: hidden;
+}
+p,li,td,th {
+text-align:left;
+ 
+}
+.clear 
+{
+    clear:both;
+}
+
+input[type='submit'],input[type='button'],input[type='reset'],input[type='text'] { border:none;}
+

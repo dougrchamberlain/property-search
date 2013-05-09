@@ -1,0 +1,93 @@
+﻿body {
+    font-size: 70%;
+    font-family: "Trebuchet MS", Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+    line-height:125%;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+select,input,textarea,checkbox,radio,submit,button,reset 
+{
+    line-height:105%;
+    font-size:11px; 
+}
+
+
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: .5em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.search-result-item
+{
+    border-top:1px solid #ebebeb;
+    border-left:1px solid #ebebeb;
+    border-right:1px solid #ebebeb;
+    padding:3px;
+}
+
+
+.search-result
+{
+        border-bottom:1px solid #ebebeb;
+}
+
+.owner-item
+{
+
+}
+
+td {
+    font-size:.9em;
+    padding: 5px;
+}

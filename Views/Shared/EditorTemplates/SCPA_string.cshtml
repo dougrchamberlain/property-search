@@ -1,0 +1,9 @@
+﻿@model dynamic
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m=>m)
+            @Html.ValidationMessageFor(m => m)
+        </div>

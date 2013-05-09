@@ -1,0 +1,219 @@
+﻿@model Search.Data.Models.Parcel
+
+@{
+    Layout = null;
+}
+<html>
+<head>
+    <script src="@Url.Content("~/Scripts/jquery-1.7.2.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.8.11.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+
+<meta name="viewport" content="width=device-width" />
+<style>
+    
+    
+html
+{
+    background-image:url('/content/images/background.png');
+    background-position:left;
+    background-repeat:no-repeat;
+    background-color:#1B5BA4;
+}
+    
+body
+{
+    min-width:320px;
+    max-width:1000px;
+    color:#fff;
+    font-family:Segoe UI, Tahoma, Verdana, sans-serif;
+    margin-left:auto;
+    margin-right:auto;
+}
+    
+
+.tile
+{
+    margin:5px;
+    float:left;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;    
+}
+
+
+.flyout
+{
+    -webkit-transform: rotate(360deg) scale(2);
+    -moz-transform: rotate(360deg) scale(2);
+    -o-transform: rotate(360deg) scale(2);
+    -ms-transform: rotate(360deg) scale(2);
+}
+    
+
+.rectangle,.square,.big-rectangle
+{
+    background:blue;
+}
+
+.square
+{
+    height:150px;
+    width:150px;
+}
+
+.h-rectangle 
+{
+    height:150px;
+    width:310px;
+}
+
+.big-rectangle 
+{
+    height:310px;
+    width: 470px;
+}
+
+.v-rectangle 
+{
+    width:155px;
+    height:310px;
+}
+
+.blue-green 
+{
+    background-color:#06697A;
+}
+
+.darkblue
+{
+    background-color:#1E7197;
+}
+
+.darkred 
+{
+    background-color:#AC0634;
+}
+
+.lightred 
+{
+    background-color:#CA8784;
+}
+
+.dirtyorange
+{
+    background-color:#D0771D;
+}
+
+.yellow
+{
+    background-color:#FCBB04;
+}
+
+.dull-yellow
+{
+    background-color:#F9EAA3;
+}
+
+.green 
+{
+    background-color:#045C44;
+}
+
+
+.yellow 
+{
+    background-color:#F9E36E;
+}
+
+.deep-purple 
+{
+    background-color:#5806c4;
+}
+
+.olive-drab 
+{
+    background-color:#808B6A;
+}
+
+.gray 
+{
+    background-color:Gray;
+}
+
+
+#footer
+{
+    background-color:White;
+    width:100%;
+    clear:both;
+    position:relative;
+    margin-top:600px;
+    height:100px;
+}
+
+
+#metro-menu
+{
+    width:100%;
+    margin:auto;
+    clear:both;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+    font-weight:normal;
+}
+
+
+</style>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $(".tile").click(function () { $(this).addClass('flyout'); });
+    });
+
+
+</script>
+
+</head>
+<body>
+
+<div id="center">
+<div>
+<img src="../../Content/images/bill-color-formal-96dpi.jpg" width="90px" height="90px" style="float:left;margin-right:30px;"/>    
+<h1>Sarasota County Property Appraiser</h1>
+</div>
+
+<div id="metro-menu">
+<div class="big-rectangle tile darkblue">
+<h1>Search for a Parcel</h1>
+<input type="text" value="Enter a Parcel ID, Ower, or Address" />
+<input type ="button" value="search" />
+<p>
+@Html.ActionLink("Search","Search","Parcel")
+</p>
+</div>
+<div class="h-rectangle tile darkblue"><h2>SCPA News</h2></div>
+<div class="square tile darkblue">Maps</div>
+<div class="square tile darkblue">Homestead Exemption</div>
+<div class="h-rectangle tile darkblue">Important Dates</div>
+
+
+<div class="square tile darkblue">Subscribe to newsletter</div>
+<div class="h-rectangle  tile darkblue">About Bill</div>
+<div class="square tile darkblue">Address Change</div>
+
+<div class="square tile darkblue">Download Forms</div>
+<div class="square tile darkblue">Contact Us</div>
+
+</div>
+
+<div id="footer">
+<p>text goes here</p>
+</div></div>
+
+</body>
+</html>

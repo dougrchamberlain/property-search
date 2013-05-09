@@ -1,0 +1,59 @@
+﻿@using Search.Helpers;
+@using Search.Components.Html.ViewModels;
+@using PagedList.Mvc;
+@using System.Linq;
+@model PagedList.PagedList<ParcelResultItemViewModel> 
+
+    <div style="overflow:hidden;width: 600px;">
+        <h2>
+            Results</h2>
+        <strong>Showing @Model.FirstItemOnPage - @Model.LastItemOnPage
+            of @String.Format("{0:N0}", ViewData["count"])
+            results found @Html.ActionLink("Export Results", "Export")</strong>
+        <br />
+        <br />
+        <div class="search-result">
+            @foreach (var item in Model)
+            {
+                <div class="search-result-item">
+                     <label>Parcel ID/Account Number</label> @Html.ActionLink(item.STRAP, "Details", new { item.STRAP })                    <em>@item.Status</em>
+                    <h4>@Html.DisplayFor(modelItem => item.SUBDIVISION_PROPERTY_USE)</h4>
+                    <h3>@Html.ActionLink(item.SITUS, "Details", new { item.STRAP })</h3>
+
+
+                    Owners
+                    @foreach (var owner in item.OWNERS.Take(2).OrderBy(x => x.LN_NUM))
+                    {
+                        <div class="owner-item">
+                            @owner.NAME
+                        </div>
+                    }                
+                    
+                    <span>Parcel Updated: @item.LastUpdated.ToShortDateString()</span>
+                    @*    @if(item.Pool){ <b>Pool</b> } *@
+</div> 
+            }
+        </div>
+        @Html.PagedListPager(Model, page => "?Page=" + page.ToString())
+    </div> 
+    <script language="javascript" type="text/javascript">
+
+        $(function () {
+            $('.pagination a').click(function () {
+                // get the url of the page link
+                var url = this.href;
+
+                var page = this.href.split('=')[1];
+
+                // update a hidden field inside the search form with this value
+                $('#Page').val(page);
+
+                // trigger the search
+                $('#searchForm').submit();
+
+                // stop the link from navigating to the url it is pointing to
+                return false;
+            });
+        });
+
+</script>  

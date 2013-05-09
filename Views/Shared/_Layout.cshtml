@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/PagedList.css")" rel="stylesheet" type="text/css" media="screen" />
+    <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.1/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" media="screen" />
+        <link href="@Url.Content("~/Content/Print.css")" rel="stylesheet" type="text/css" media="print" />
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.js" type="text/javascript" ></script> 
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.1/jquery-ui.js" type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/mvc/3.0/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.date').datepicker({ dateFormat: "mm/dd/yy", changeMonth: true,
+                changeYear: true, yearRange: '1901:2016', showOn: 'button',buttonImage: '@Url.Content("~/Content/images/iconCalendar.gif")',buttonImageOnly: true, 
+            });
+
+        });
+    
+    </script>
+</head>
+<body>
+    <div class="page">
+        <div id="header">
+            @*            <div id="title">
+                <h1>My MVC Application</h1>
+            </div>
+            <div id="menucontainer">
+                <ul id="menu">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                </ul>
+            </div>*@
+        </div>
+        <div id="main">
+            @RenderBody()
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+
+</body>
+</html>
+

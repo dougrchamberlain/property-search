@@ -1,0 +1,56 @@
+﻿@using Search.Helpers;
+@using Search.Components.Html.ViewModels;
+ 
+@model TangibleSearchViewModel
+
+@{
+    ViewBag.Title = "Search";
+
+}
+<div>
+@Html.ActionLink("Advanced","AdvancedSearch")
+@using (Html.BeginForm("Search", "Tangible", FormMethod.Get, new { id = "searchForm" }))
+{
+<div>        @Html.ValidationMessageFor(x => x)</div>
+    
+    @Html.EditorFor(m => m)
+     <input type="submit" value="Refine" />
+
+}
+    </div>
+
+
+        <h2>Results</h2>
+
+<table>
+<tr>
+<th>Account Number</th>
+<th>Owner Name</th>
+<th></th>
+<th></th>
+</tr>
+
+@if (Model.SearchResults != null)
+{
+foreach (var item in Model.SearchResults)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(x => item.AccountNumber) 
+        </td>
+        <td>
+            @Html.DisplayFor(x=> item.OwnerName)
+        </td>
+        <td>
+            @Html.ActionLink("Show Details", "Details", new { id = item.AccountNumber})
+        </td>
+    </tr>
+    <tr>
+    <td colspan="3">
+            @Html.DisplayFor(modelItem => item.PropertyAddress)
+    </td>
+    </tr>
+}
+}
+</table>
+

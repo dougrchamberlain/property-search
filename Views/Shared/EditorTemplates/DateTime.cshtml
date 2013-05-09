@@ -1,0 +1,6 @@
+﻿@model DateTime?
+@{
+    
+    var x = 1;
+}
+@Html.TextBox("", Model != null ? Model.Value.ToShortDateString() : null, new { @class = "date", autocomplete = "off", @size = "7" })

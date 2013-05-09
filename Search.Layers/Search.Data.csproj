@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F090B520-890B-4770-97E1-B06CA42C4C9A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Search.Data</RootNamespace>
+    <AssemblyName>Search.Layers</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqKit">
+      <HintPath>..\packages\LinqKit.1.0\lib\35\LinqKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\CamaContext.cs" />
+    <Compile Include="Data\ICamaContext.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Migrations\201304121902568_Initial.cs" />
+    <Compile Include="Migrations\201304121902568_Initial.Designer.cs">
+      <DependentUpon>201304121902568_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201304121911336_migration1.cs" />
+    <Compile Include="Migrations\201304121911336_migration1.Designer.cs">
+      <DependentUpon>201304121911336_migration1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201304151359459_Migrate-Add-ExtraFeatures.cs" />
+    <Compile Include="Migrations\201304151359459_Migrate-Add-ExtraFeatures.Designer.cs">
+      <DependentUpon>201304151359459_Migrate-Add-ExtraFeatures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305012255448_may1.cs" />
+    <Compile Include="Migrations\201305012255448_may1.Designer.cs">
+      <DependentUpon>201305012255448_may1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305021239369_Additional-Fields.cs" />
+    <Compile Include="Migrations\201305021239369_Additional-Fields.Designer.cs">
+      <DependentUpon>201305021239369_Additional-Fields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305021308299_may2.cs" />
+    <Compile Include="Migrations\201305021308299_may2.Designer.cs">
+      <DependentUpon>201305021308299_may2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305021529367_may11.cs" />
+    <Compile Include="Migrations\201305021529367_may11.Designer.cs">
+      <DependentUpon>201305021529367_may11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305021829072_AddUpdatedate-field.cs" />
+    <Compile Include="Migrations\201305021829072_AddUpdatedate-field.Designer.cs">
+      <DependentUpon>201305021829072_AddUpdatedate-field.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305031735059_May3.cs" />
+    <Compile Include="Migrations\201305031735059_May3.Designer.cs">
+      <DependentUpon>201305031735059_May3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305071613097_downloads.cs" />
+    <Compile Include="Migrations\201305071613097_downloads.Designer.cs">
+      <DependentUpon>201305071613097_downloads.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305071618285_downloads2.cs" />
+    <Compile Include="Migrations\201305071618285_downloads2.Designer.cs">
+      <DependentUpon>201305071618285_downloads2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ICamaService.cs" />
+    <Compile Include="Services\ParcelService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Search.Models\Search.Models.csproj">
+      <Project>{8ABBDC23-31FA-4943-99AC-A349E9A34F2A}</Project>
+      <Name>Search.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201304121902568_Initial.resx">
+      <DependentUpon>201304121902568_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201304121911336_migration1.resx">
+      <DependentUpon>201304121911336_migration1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201304151359459_Migrate-Add-ExtraFeatures.resx">
+      <DependentUpon>201304151359459_Migrate-Add-ExtraFeatures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305012255448_may1.resx">
+      <DependentUpon>201305012255448_may1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305021239369_Additional-Fields.resx">
+      <DependentUpon>201305021239369_Additional-Fields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305021308299_may2.resx">
+      <DependentUpon>201305021308299_may2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305021529367_may11.resx">
+      <DependentUpon>201305021529367_may11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305021829072_AddUpdatedate-field.resx">
+      <DependentUpon>201305021829072_AddUpdatedate-field.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305031735059_May3.resx">
+      <DependentUpon>201305031735059_May3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305071613097_downloads.resx">
+      <DependentUpon>201305071613097_downloads.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305071618285_downloads2.resx">
+      <DependentUpon>201305071618285_downloads2.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

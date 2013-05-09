@@ -1,0 +1,92 @@
+﻿@using System.Linq
+@using PagedList.Mvc
+@using Search.Components.Html.ViewModels
+@using Search.Helpers
+
+
+@model SearchViewModel
+@{
+    ViewBag.Title = "Search";
+}
+<script type="text/javascript" >
+
+    $(document).ready(function () {
+        var postingfields = $("input[type=text],input[type=checkbox], textarea, select,input[type=number]");
+        var jspost = function () {
+            $('#Page').val(1);
+            $('#searchForm').submit();
+
+        };        
+        postingfields.keyup(jspost);
+        postingfields.change(jspost);
+
+    });
+</script>
+@*@Html.ActionLink("Advanced", "Search", new { useAdvancedSearch = true })*@
+@*@Html.ActionLink("Tangible", "Search", "Tangible")*@
+@using (Html.BeginForm("Search", "Parcel", FormMethod.Post, new { id = "searchForm" }))
+{
+    <div style="float: left; width: 250px;">
+        <div>@Html.ValidationMessageFor(x => x)</div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.ParcelSearch.Strap)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.ParcelSearch.Strap)
+            @Html.ValidationMessageFor(m => m.ParcelSearch.Strap)
+        </div>
+        @Html.EditorFor(m => m.ParcelSearch.OwnerKeywords, "scpa_string")
+        @Html.EditorFor(m => m.ParcelSearch.AddressKeywords, "scpa_string")
+        <div class="editor-label">
+            Location
+        </div>
+        @*        <div class="editor-field">
+            @Html.ListBox("SelectedLocations", new MultiSelectList(Model.ParcelSearch, "Text", "Value"), new { size = "8" })
+        </div>*@
+        <div class="editor-label">
+            @Html.LabelFor(m => m.ParcelSearch.ZipCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.ParcelSearch.ZipCode)
+            @Html.ValidationMessageFor(m => m.ParcelSearch.ZipCode)
+        </div>
+        <div class="editor-label">
+            Property Features
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(m => m.PropertyFeatureSearch.Pool)@Html.LabelFor(m => m.PropertyFeatureSearch.Pool)
+            <br />
+            @Html.CheckBoxFor(m => m.PropertyFeatureSearch.Tennis)@Html.LabelFor(m => m.PropertyFeatureSearch.Tennis)
+            <br />
+            @Html.CheckBoxFor(m => m.PropertyFeatureSearch.Dock)@Html.LabelFor(m => m.PropertyFeatureSearch.Dock)
+            <br />
+            @Html.CheckBoxFor(m => m.PropertyFeatureSearch.SeaWall)@Html.LabelFor(m => m.PropertyFeatureSearch.SeaWall)
+            <br />
+            @Html.CheckBoxFor(m => m.PropertyFeatureSearch.VacantLand)@Html.LabelFor(m => m.PropertyFeatureSearch.VacantLand)
+        </div>
+        <div class="editor-label">
+            Sale Date
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.SalesSearch.SalesFrom) to
+            @Html.EditorFor(m => m.SalesSearch.SalesTo)
+        </div>
+        <div class="editor-label">
+            Sale Price
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.SalesSearch.SaleAmountFrom) to
+            @Html.EditorFor(m => m.SalesSearch.SaleAmountTo)
+        </div>
+        
+                @Html.EditorFor(m => m.SalesSearch.InstrumentNumber, "scpa_string")
+            @Html.EditorFor(m=>m.SalesSearch.GrantorSeller,"SCPA_string")
+         
+            @Html.HiddenFor(m => m.Page)
+        <input type="submit" value="Search" />
+        <input type="reset" value="Reset"  />
+    </div>
+    @Html.Partial("_SearchResults", Model.SearchResults)
+}

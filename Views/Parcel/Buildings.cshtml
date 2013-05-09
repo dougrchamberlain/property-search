@@ -1,0 +1,86 @@
+﻿@using Search.Components.Html.ViewModels;
+@using System.Web.Helpers;
+@using MvcContrib.UI.Grid;
+
+@model BuildingViewModel
+
+@{
+
+    var xs = 1;
+}   
+   
+
+<h2>Building #@Html.Display("Num") for #@Html.ActionLink(Model.Strap ,"Details",new {id=Model.Strap})</h2>
+<h3>@Html.Display("Situs")</h3>
+
+<div class="display-label">Stories</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.STORY_NUM )
+    </div>
+
+<div class="display-label">Building Type</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TYPE)
+    </div>
+
+    <div class="display-label">Building Style</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.STYLE)
+    </div>
+
+@*    <div class="display-label">CLASS</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CLASS)
+    </div>*@
+
+    <div class="display-label">Year Built</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.YEAR_BUILT)
+    </div>
+
+    <div class="display-label">Total Building Area</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GROSS_AREA)
+    </div>
+
+    <div class="display-label">Total Living Area</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.LIVING_AREA)
+</div>
+
+
+    <div class="display-label">Bedrooms</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BEDS )
+    </div>
+    
+        <div class="display-label">Bathrooms</div>
+<div class="display-field">
+   @Html.DisplayFor(model => model.BATHS)
+</div>
+
+        <div class="display-label">Half Bathrooms</div>
+<div class="display-field">
+   @Html.DisplayFor(model => model.HALF_BATHS)
+</div>
+
+
+
+<img src="" height="300px" width="300px"/>
+
+<h2>Structural Elements</h2>
+<div>
+@Html.Grid(Model.StructuralElements.Where(x=>x.Category == "CODED")).AutoGenerateColumns()
+</div>
+
+
+<h2>SubAreas</h2>
+<div>
+@Html.Grid(Model.SubAreas).AutoGenerateColumns()
+</div>
+
+
+<h2>Extra Features</h2>
+<div>
+@Html.Grid(Model.ExtraFeatures).AutoGenerateColumns() 
+</div>

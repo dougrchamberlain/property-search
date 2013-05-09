@@ -1,0 +1,78 @@
+﻿@model Search.Data.Models.Tangible
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Tangible</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AccountNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AccountNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PropertyAddress)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PropertyAddress)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AssociatedStrap)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AssociatedStrap)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OwnerName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OwnerName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BusinessType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BusinessType)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LocalTaxId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LocalTaxId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MailingAddress)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MailingAddress)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastReturnFiled)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastReturnFiled)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsWaived)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsWaived)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

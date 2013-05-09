@@ -1,0 +1,37 @@
+﻿@using PagedList.Mvc;
+@using Search.Components.Html.ViewModels;
+
+@model Search.Components.Html.ViewModels.SearchViewModel
+@{
+    ViewBag.Title = "AdvancedSearch";
+}
+@Html.ActionLink("Basic", "Search", new { useAdvancedSearch = false })
+@Html.ActionLink("Tangible", "Search", "Tangible")
+@using (Html.BeginForm("Search", "Parcel", FormMethod.Post, new { id = "searchForm" }))
+{
+    <div style="float: left; width: 250px;">
+        <div>@Html.ValidationMessageFor(x => x)</div>
+
+        @Html.EditorFor(m=>m.ParcelSearch)
+        
+        @Html.EditorFor(m=>m.PropertyFeatureSearch)
+
+
+        @Html.EditorFor(m=>m.SalesSearch)
+        
+        @Html.EditorFor(m=>m.ValuesSearch )
+        
+        @Html.EditorFor(m=>m.BuildingSearch)
+         
+         
+
+
+
+        @Html.HiddenFor(m => m.Page)
+        @Html.HiddenFor(m => m.UseAdvancedSearch)
+
+        <input type="submit" value="Refine" />
+    </div>
+
+ @Html.Partial("_SearchResults", Model.SearchResults)
+}
